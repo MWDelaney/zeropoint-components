@@ -87,7 +87,7 @@ export function addFilters(eleventyConfig) {
   eleventyConfig.addFilter("renderComponent", async function (items, lang) {
     // Early return if no items provided
     if (!items) {
-      debugRenderComponent({ phase: 'no-items' });
+      debugRenderComponent({ phase: "no-items" });
       return "";
     }
 
@@ -99,14 +99,14 @@ export function addFilters(eleventyConfig) {
 
     // Early return if no valid items after filtering
     if (validItems.length === 0) {
-      debugRenderComponent({ phase: 'no-items' });
+      debugRenderComponent({ phase: "no-items" });
       return "";
     }
 
     // Log warning if some items were filtered out due to missing 'type'
     if (validItems.length < itemsArray.length) {
       debugRenderComponent({
-        phase: 'filtered-items',
+        phase: "filtered-items",
         filteredCount: itemsArray.length - validItems.length,
         validItems
       });
@@ -115,7 +115,7 @@ export function addFilters(eleventyConfig) {
     // Get the components collection from Eleventy's context
     const collections = this.ctx.collections || this.collections;
     if (!collections || !collections.components) {
-      debugRenderComponent({ phase: 'no-collections' });
+      debugRenderComponent({ phase: "no-collections" });
       return "";
     }
 
@@ -129,14 +129,14 @@ export function addFilters(eleventyConfig) {
     // Log discovered components once on first render (avoids spam in logs)
     if (!this._componentsDebugLogged) {
       debugRenderComponent({
-        phase: 'components-list',
+        phase: "components-list",
         components: collections.components,
         slugifyFilter
       });
       this._componentsDebugLogged = true;
     }
 
-    debugRenderComponent({ phase: 'render-start', validItems, lang: templateLang });
+    debugRenderComponent({ phase: "render-start", validItems, lang: templateLang });
 
     // Pre-build list of available component slugs for error reporting
     const availableComponents = collections.components
@@ -163,11 +163,11 @@ export function addFilters(eleventyConfig) {
             const mergedData = { ...component.data, ...item };
 
             debugRenderComponent({
-              phase: 'match',
+              phase: "match",
               validItems,
               itemIndex: i + 1,
               itemType: item.type,
-              componentPath: component.inputPath || component.page?.inputPath || 'unknown path',
+              componentPath: component.inputPath || component.page?.inputPath || "unknown path",
               mergedData
             });
 
@@ -183,7 +183,7 @@ export function addFilters(eleventyConfig) {
       // Log if no matching component was found for this item
       if (!matched) {
         debugRenderComponent({
-          phase: 'no-match',
+          phase: "no-match",
           itemIndex: i + 1,
           itemType: item.type,
           availableComponents

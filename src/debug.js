@@ -138,7 +138,7 @@ export function debugMatchSuccessSimple(itemIndex, type) {
 export function debugMatchFailure(itemIndex, type, availableComponents) {
   debug(`Item ${itemIndex}:`, 1);
   debug(`Type: ${type}`, 2);
-  debug(`Match: ✗ No matching component found`, 2);
+  debug("Match: ✗ No matching component found", 2);
   if (availableComponents.length > 0) {
     debug(`Available: ${availableComponents.join(", ")}`, 2);
   }
@@ -175,36 +175,36 @@ export function debugRenderComponent(context) {
   } = context;
 
   switch (phase) {
-    case "no-items":
-      debugNoItems();
-      break;
+  case "no-items":
+    debugNoItems();
+    break;
 
-    case "filtered-items":
-      debugFilteredItems(filteredCount, validItems.length);
-      break;
+  case "filtered-items":
+    debugFilteredItems(filteredCount, validItems.length);
+    break;
 
-    case "no-collections":
-      debugNoCollections();
-      break;
+  case "no-collections":
+    debugNoCollections();
+    break;
 
-    case "components-list":
-      debugComponents(components, slugifyFilter);
-      break;
+  case "components-list":
+    debugComponents(components, slugifyFilter);
+    break;
 
-    case "render-start":
-      debugRenderStart(validItems, lang);
-      break;
+  case "render-start":
+    debugRenderStart(validItems, lang);
+    break;
 
-    case "match":
-      if (validItems.length === 1) {
-        debugMatchSuccess(itemIndex, itemType, componentPath, mergedData);
-      } else {
-        debugMatchSuccessSimple(itemIndex, itemType);
-      }
-      break;
+  case "match":
+    if (validItems.length === 1) {
+      debugMatchSuccess(itemIndex, itemType, componentPath, mergedData);
+    } else {
+      debugMatchSuccessSimple(itemIndex, itemType);
+    }
+    break;
 
-    case "no-match":
-      debugMatchFailure(itemIndex, itemType, availableComponents);
-      break;
+  case "no-match":
+    debugMatchFailure(itemIndex, itemType, availableComponents);
+    break;
   }
 }
