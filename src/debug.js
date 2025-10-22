@@ -1,5 +1,3 @@
-import EleventyPluginDebug from "@11ty/eleventy-plugin-debug";
-
 const PLUGIN_NAME = "eleventy-plugin-reusable-components";
 let DEBUG_ENABLED = false;
 
@@ -39,8 +37,8 @@ export function debugInit(options) {
   debug(`componentsDir: "${options.componentsDir}"`, 1);
   debug(`collectionName: "${options.collectionName}"`, 1);
   debug(`enableRenderPlugin: ${options.enableRenderPlugin}`, 1);
-  debug(`excludeFromProduction: ${options.excludeFromProduction}`, 1);
-  debug(`ELEVENTY_ENV: "${process.env.ELEVENTY_ENV || 'development'}"`, 1);
+  debug(`output: ${options.output}`, 1);
+  debug(`ELEVENTY_ENV: "${process.env.ELEVENTY_ENV || "development"}"`, 1);
 }
 
 /**
@@ -58,7 +56,7 @@ export function debugProductionMode(componentsDir) {
  * @param {Function} slugifyFilter - Eleventy's slugify filter
  */
 export function debugComponents(components, slugifyFilter) {
-  debug(`Found ${components.length} component${components.length !== 1 ? 's' : ''}:`);
+  debug(`Found ${components.length} component${components.length !== 1 ? "s" : ""}:`);
 
   if (components.length === 0) {
     debug("⚠ No components found", 1);
@@ -69,7 +67,7 @@ export function debugComponents(components, slugifyFilter) {
     if (component.data && component.data.title) {
       const title = component.data.title;
       const slug = slugifyFilter(title);
-      const path = component.inputPath || component.page?.inputPath || 'unknown path';
+      const path = component.inputPath || component.page?.inputPath || "unknown path";
       debug(`✓ ${title} (${slug}) → ${path}`, 1);
     }
   });
@@ -83,7 +81,7 @@ export function debugComponents(components, slugifyFilter) {
 export function debugRenderStart(items, lang) {
   debug("renderComponent called:");
   debug(`Items: ${items.length}`, 1);
-  debug(`Template language: ${lang || 'auto-detect'}`, 1);
+  debug(`Template language: ${lang || "auto-detect"}`, 1);
   debug("", 1); // Empty line for readability
 }
 
@@ -101,7 +99,7 @@ export function debugNoItems() {
  * @param {number} validCount - Number of valid items remaining
  */
 export function debugFilteredItems(filteredCount, validCount) {
-  debug(`⚠ Warning: ${filteredCount} item${filteredCount !== 1 ? 's' : ''} without 'type' property ${filteredCount !== 1 ? 'were' : 'was'} filtered out`);
+  debug(`⚠ Warning: ${filteredCount} item${filteredCount !== 1 ? "s" : ""} without 'type' property ${filteredCount !== 1 ? "were" : "was"} filtered out`);
   debug(`Valid items: ${validCount}`, 1);
 }
 
@@ -117,7 +115,7 @@ export function debugMatchSuccess(itemIndex, type, componentPath, mergedData) {
   debug(`Type: ${type}`, 2);
   debug(`Match: ✓ ${type}`, 2);
   debug(`Component: ${componentPath}`, 2);
-  debug(`Merged data keys: ${Object.keys(mergedData).join(', ')}`, 2);
+  debug(`Merged data keys: ${Object.keys(mergedData).join(", ")}`, 2);
 }
 
 /**
@@ -142,7 +140,7 @@ export function debugMatchFailure(itemIndex, type, availableComponents) {
   debug(`Type: ${type}`, 2);
   debug(`Match: ✗ No matching component found`, 2);
   if (availableComponents.length > 0) {
-    debug(`Available: ${availableComponents.join(', ')}`, 2);
+    debug(`Available: ${availableComponents.join(", ")}`, 2);
   }
 }
 
@@ -164,13 +162,11 @@ export function debugRenderComponent(context) {
 
   const {
     phase,
-    items,
     validItems,
     filteredCount,
     lang,
     itemIndex,
     itemType,
-    matched,
     componentPath,
     mergedData,
     availableComponents,
@@ -179,27 +175,27 @@ export function debugRenderComponent(context) {
   } = context;
 
   switch (phase) {
-    case 'no-items':
+    case "no-items":
       debugNoItems();
       break;
 
-    case 'filtered-items':
+    case "filtered-items":
       debugFilteredItems(filteredCount, validItems.length);
       break;
 
-    case 'no-collections':
+    case "no-collections":
       debugNoCollections();
       break;
 
-    case 'components-list':
+    case "components-list":
       debugComponents(components, slugifyFilter);
       break;
 
-    case 'render-start':
+    case "render-start":
       debugRenderStart(validItems, lang);
       break;
 
-    case 'match':
+    case "match":
       if (validItems.length === 1) {
         debugMatchSuccess(itemIndex, itemType, componentPath, mergedData);
       } else {
@@ -207,7 +203,7 @@ export function debugRenderComponent(context) {
       }
       break;
 
-    case 'no-match':
+    case "no-match":
       debugMatchFailure(itemIndex, itemType, availableComponents);
       break;
   }

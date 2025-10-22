@@ -20,7 +20,7 @@ export function addCollections(eleventyConfig, options) {
 
     // Process each component file to extract frontmatter and content
     const components = componentFiles.map(filePath => {
-      const fileContent = readFileSync(filePath, 'utf-8');
+      const fileContent = readFileSync(filePath, "utf-8");
       const { data, content } = matter(fileContent);
 
       return {
