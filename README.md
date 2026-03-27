@@ -14,7 +14,7 @@ A configurable [BuildAwesome](https://www.11ty.dev/) plugin that enables a power
 - 🧩 **Dynamic Component Rendering** - Render components based on content data
 - 🎨 **Template Language Agnostic** - Works with Nunjucks, Liquid, WebC, Vento, and more
 - 🏗️ **Flexible Configuration** - Customizable directories and options
-- 🚀 **Production Ready** - Excludes development components from production builds
+- 🚀 **Output Control** - Choose whether components are written to their own output files
 - 🔧 **Developer Friendly** - Comprehensive error handling and debugging
 
 ## Installation
@@ -478,7 +478,7 @@ const defaultOptions = {
   componentsDir: "src/components/*.*",
   collectionName: "components",
   enableRenderPlugin: true,
-  excludeFromProduction: true
+  output: true
 };
 ```
 
@@ -1024,7 +1024,7 @@ If no template language is specified, the filter will use the calling template's
 | `componentsDir` | `string` | `"src/components/*.*"` | Glob pattern for component files |
 | `collectionName` | `string` | `"components"` | Name of components collection |
 | `enableRenderPlugin` | `boolean` | `true` | Enable Eleventy Render Plugin |
-| `excludeFromProduction` | `boolean` | `true` | Exclude components from production |
+| `output` | `boolean` | `true` | Whether components are written to their own output files/endpoints |
 
 ### Filters
 

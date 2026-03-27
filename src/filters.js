@@ -1,3 +1,5 @@
+import { debugRenderComponent } from "./debug.js";
+
 /**
  * Add filters for the component system
  * @param {Object} eleventyConfig - Eleventy configuration object
@@ -83,54 +85,113 @@ export function addFilters(eleventyConfig) {
 
   // Render components filter - returns matched component templates
   eleventyConfig.addFilter("renderComponent", async function (items, lang) {
+    // Early return if no items provided
     if (!items) {
+      debugRenderComponent({ phase: "no-items" });
       return "";
     }
 
-    // Normalize input to always be an array
+    // Normalize input to always be an array for consistent processing
     const itemsArray = Array.isArray(items) ? items : [items];
 
-    // Filter out any items without a type
+    // Filter out any items that don't have a required 'type' property
     const validItems = itemsArray.filter(item => item && item.type);
 
+    // Early return if no valid items after filtering
     if (validItems.length === 0) {
+      debugRenderComponent({ phase: "no-items" });
       return "";
     }
 
+    // Log warning if some items were filtered out due to missing 'type'
+    if (validItems.length < itemsArray.length) {
+      debugRenderComponent({
+        phase: "filtered-items",
+        filteredCount: itemsArray.length - validItems.length,
+        validItems
+      });
+    }
+
+    // Get the components collection from Eleventy's context
     const collections = this.ctx.collections || this.collections;
     if (!collections || !collections.components) {
+      debugRenderComponent({ phase: "no-collections" });
       return "";
     }
 
+    // Get required filters from Eleventy
     const slugifyFilter = eleventyConfig.getFilter("slugify");
     const renderFilter = eleventyConfig.getFilter("renderContent");
+
+    // Determine template language: use provided lang, or auto-detect from current page
+    const templateLang = lang || (this.page && this.page.templateSyntax);
+
+    // Log discovered components once on first render (avoids spam in logs)
+    if (!this._componentsDebugLogged) {
+      debugRenderComponent({
+        phase: "components-list",
+        components: collections.components,
+        slugifyFilter
+      });
+      this._componentsDebugLogged = true;
+    }
+
+    debugRenderComponent({ phase: "render-start", validItems, lang: templateLang });
+
+    // Pre-build list of available component slugs for error reporting
+    const availableComponents = collections.components
+      .filter(c => c.data && c.data.title)
+      .map(c => slugifyFilter(c.data.title));
+
     const renderedComponents = [];
 
-    // Process each item
-    for (const item of validItems) {
-      // Find the matching component in the collections
+    // Process each valid item
+    for (let i = 0; i < validItems.length; i++) {
+      const item = validItems[i];
+      let matched = false;
+
+      // Search through all components for a matching type
       for (const component of collections.components) {
         if (component.data && component.data.title) {
+          // Slugify both the component title and item type for comparison
           const componentSlug = slugifyFilter(component.data.title);
           const itemSlug = slugifyFilter(item.type);
 
+          // Check if this component matches the item's type
           if (componentSlug === itemSlug) {
-            // Merge component defaults with item data (item data takes precedence)
+            // Merge component's default data with item data (item overrides defaults)
             const mergedData = { ...component.data, ...item };
 
-            // If a language was passed to the filter as lang, use it, otherwise get the calling template's templateSyntax
-            const templateLang = lang || (this.page && this.page.templateSyntax);
+            debugRenderComponent({
+              phase: "match",
+              validItems,
+              itemIndex: i + 1,
+              itemType: item.type,
+              componentPath: component.inputPath || component.page?.inputPath || "unknown path",
+              mergedData
+            });
 
-            // Render the component's rawInput with merged data using the determined template language
+            // Render the component template with merged data
             const rendered = await renderFilter.call(this, component.rawInput, templateLang, mergedData);
             renderedComponents.push(rendered);
-            break; // Move to next item after finding a match
+            matched = true;
+            break; // Stop searching once we find a match
           }
         }
       }
+
+      // Log if no matching component was found for this item
+      if (!matched) {
+        debugRenderComponent({
+          phase: "no-match",
+          itemIndex: i + 1,
+          itemType: item.type,
+          availableComponents
+        });
+      }
     }
 
-    // Join all rendered components with newlines
+    // Join all rendered components with newlines and return
     return renderedComponents.join("\n");
   });
 }
