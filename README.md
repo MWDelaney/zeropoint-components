@@ -20,20 +20,20 @@ A configurable [BuildAwesome](https://www.11ty.dev/) plugin that enables a power
 ## Installation
 
 ```bash
-npm install eleventy-plugin-reusable-components
+npm install zeropoint-components
 ```
 
 ## Quick Start
 
 ### 1. Add the Plugin
 
-Add the plugin to your Eleventy configuration file (`.eleventy.js` or `eleventy.config.js`).
+Add the plugin to your configuration file.
 
 <details open>
 <summary>View configuration code</summary>
 
 ```javascript
-import reusableComponents from "eleventy-plugin-reusable-components";
+import reusableComponents from "zeropoint-components";
 
 export default function(eleventyConfig) {
   eleventyConfig.addPlugin(reusableComponents);
