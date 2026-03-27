@@ -1,11 +1,11 @@
-# Reusable Components for Eleventy Plugin
+# Reusable Components for BuildAwesome powered sites
 [![npm version](https://img.shields.io/npm/v/eleventy-plugin-reusable-components.svg)](https://www.npmjs.com/package/eleventy-plugin-reusable-components)
 [![Tests](https://github.com/MWDelaney/eleventy-plugin-components/workflows/🧪%20Run%20Tests/badge.svg)](https://github.com/MWDelaney/eleventy-plugin-components/actions) 
 🎈🐀
 
 ![components-logo](https://github.com/user-attachments/assets/cbf508d8-2d83-4d4c-bc86-17af45c626f7)
 
-A configurable [Eleventy](https://www.11ty.dev/) plugin that enables a powerful component system for building dynamic, reusable HTML components across your static site.
+A configurable [BuildAwesome](https://www.11ty.dev/) plugin that enables a powerful component system for building dynamic, reusable HTML components across your static site.
 
 👉 Build your components once and use them anywhere.
 
@@ -182,12 +182,12 @@ In any template, use the `renderComponent` filter:
 {{-
   {
     "type": "callout",
-    "heading": "Help organize the 11ty Meetup!",
+    "heading": "Build sites statically!",
     "description": "A callout component to highlight important information.",
     "links": [
       {
-        "linkUrl": "https://11tymeetup.dev/",
-        "linkText": "Join the 11ty Meetup!"
+        "linkUrl": "https://getzeropoint.com/",
+        "linkText": "You don't need all that infrastructure"
       }
     ],
     "background": "warning"
@@ -204,11 +204,11 @@ title: My Page
 # Callout component data
 callout:
   type: callout
-  heading: Help organize the 11ty Meetup!
+  heading: Build sites statically!
   description: A callout component to highlight important information.
   links:
-    - linkUrl: https://11tymeetup.dev/
-      linkText: Join the 11ty Meetup!
+    - linkUrl: https://getzeropoint.com/
+      linkText: You don't need all that infrastructure
   background: warning
 ---
 
@@ -224,12 +224,12 @@ callout:
 {{-
   {
     "type": "callout",
-    "heading": "Help organize the 11ty Meetup!",
+    "heading": "Build sites statically!",
     "description": "A callout component to highlight important information.",
     "links": [
       {
-        "linkUrl": "https://11tymeetup.dev/",
-        "linkText": "Join the 11ty Meetup!"
+        "linkUrl": "https://getzeropoint.com/",
+        "linkText": "You don't need all that infrastructure"
       }
     ],
     "background": "warning"
@@ -246,11 +246,11 @@ title: My Page
 # Callout component data
 callout:
   type: callout
-  heading: Help organize the 11ty Meetup!
+  heading: Build sites statically!
   description: A callout component to highlight important information.
   links:
-    - linkUrl: https://11tymeetup.dev/
-      linkText: Join the 11ty Meetup!
+    - linkUrl: https://getzeropoint.com
+      linkText: You don't need all that infrastructure
   background: warning
 ---
 
@@ -265,12 +265,12 @@ callout:
 ```html
 <template @html="{
   'type': 'callout',
-  'heading': 'Help organize the 11ty Meetup!',
+  'heading': 'Build sites statically!',
   'description': 'A callout component to highlight important information.',
   'links': [
     {
-      'linkUrl': 'https://11tymeetup.dev/',
-      'linkText': 'Join the 11ty Meetup!'
+      'linkUrl': 'https://getzeropoint.com',
+      'linkText': 'You don't need all that infrastructure'
     }
   ],
   'background': 'warning'
@@ -286,11 +286,11 @@ title: My Page
 # Callout component data
 callout:
   type: callout
-  heading: Help organize the 11ty Meetup!
+  heading: Build sites statically!
   description: A callout component to highlight important information.
   links:
-    - linkUrl: https://11tymeetup.dev/
-      linkText: Join the 11ty Meetup!
+    - linkUrl: https://getzeropoint.com
+      linkText: You don't need all that infrastructure
   background: warning
 ---
 
@@ -306,12 +306,12 @@ callout:
 {{-
   {
     "type": "callout",
-    "heading": "Help organize the 11ty Meetup!",
+    "heading": "Build sites statically!",
     "description": "A callout component to highlight important information.",
     "links": [
       {
-        "linkUrl": "https://11tymeetup.dev/",
-        "linkText": "Join the 11ty Meetup!"
+        "linkUrl": "https://getzeropoint.com",
+        "linkText": "You don't need all that infrastructure"
       }
     ],
     "background": "warning"
@@ -328,11 +328,11 @@ title: My Page
 # Callout component data
 callout:
   type: callout
-  heading: Help organize the 11ty Meetup!
+  heading: Build sites statically!
   description: A callout component to highlight important information.
   links:
-    - linkUrl: https://11tymeetup.dev/
-      linkText: Join the 11ty Meetup!
+    - linkUrl: https://getzeropoint.com
+      linkText: You don't need all that infrastructure
   background: warning
 ---
 
@@ -354,11 +354,11 @@ title: My Page
 # Mixed component data
 components:
   - type: callout
-    heading: Help organize the 11ty Meetup!
+    heading: Build sites statically!
     description: A callout component to highlight important information.
     links:
-      - linkUrl: https://11tymeetup.dev/
-        linkText: Join the 11ty Meetup!
+      - linkUrl: https://getzeropoint.com
+        linkText: You don't need all that infrastructure
     background: warning
 
   - type: text-and-image
@@ -384,11 +384,11 @@ title: My Page
 # Mixed component data
 components:
   - type: callout
-    heading: Help organize the 11ty Meetup!
+    heading: Build sites statically!
     description: A callout component to highlight important information.
     links:
-      - linkUrl: https://11tymeetup.dev/
-        linkText: Join the 11ty Meetup!
+      - linkUrl: https://getzeropoint.com
+        linkText: You don't need all that infrastructure
     background: warning
 
   - type: text-and-image
@@ -414,11 +414,11 @@ title: My Page
 # Mixed component data
 components:
   - type: callout
-    heading: Help organize the 11ty Meetup!
+    heading: Build sites statically!
     description: A callout component to highlight important information.
     links:
-      - linkUrl: https://11tymeetup.dev/
-        linkText: Join the 11ty Meetup!
+      - linkUrl: https://getzeropoint.com
+        linkText: You don't need all that infrastructure
     background: warning
 
   - type: text-and-image
@@ -444,11 +444,11 @@ title: My Page
 # Mixed component data
 components:
   - type: callout
-    heading: Help organize the 11ty Meetup!
+    heading: Build sites statically!
     description: A callout component to highlight important information.
     links:
-      - linkUrl: https://11tymeetup.dev/
-        linkText: Join the 11ty Meetup!
+      - linkUrl: https://getzeropoint.com
+        linkText: You don't need all that infrastructure
     background: warning
 
   - type: text-and-image
