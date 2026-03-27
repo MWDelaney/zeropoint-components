@@ -1,9 +1,9 @@
-# Reusable Components for BuildAwesome powered sites
+![components-logo](https://github.com/user-attachments/assets/cbf508d8-2d83-4d4c-bc86-17af45c626f7)
+
+# ZeroPoint Reusable Components 
+
 [![npm version](https://img.shields.io/npm/v/eleventy-plugin-reusable-components.svg)](https://www.npmjs.com/package/eleventy-plugin-reusable-components)
 [![Tests](https://github.com/MWDelaney/eleventy-plugin-components/workflows/🧪%20Run%20Tests/badge.svg)](https://github.com/MWDelaney/eleventy-plugin-components/actions) 
-🎈🐀
-
-![components-logo](https://github.com/user-attachments/assets/cbf508d8-2d83-4d4c-bc86-17af45c626f7)
 
 A configurable [BuildAwesome](https://www.11ty.dev/) plugin that enables a powerful component system for building dynamic, reusable HTML components across your static site.
 
