@@ -1,19 +1,20 @@
 {
-  "name": "eleventy-plugin-reusable-components",
+  "name": "zeropoint-components",
   "version": "1.0.1",
-  "description": "A configurable Eleventy plugin that enables a powerful component system for building dynamic, reusable HTML components across your static site.",
+  "description": "A BuildAwesome plugin for reusable HTML components across your website.",
   "keywords": [
     "eleventy",
+    "buildawesome",
     "plugin",
     "components"
   ],
-  "homepage": "https://github.com/mwdelaney/eleventy-plugin-components#readme",
+  "homepage": "https://github.com/mwdelaney/zeropoint-components#readme",
   "bugs": {
-    "url": "https://github.com/mwdelaney/eleventy-plugin-components/issues"
+    "url": "https://github.com/mwdelaney/zeropoint-components/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mwdelaney/eleventy-plugin-components.git"
+    "url": "git+https://github.com/mwdelaney/zeropoint-components.git"
   },
   "license": "MIT",
   "author": "MWDelaney (https://github.com/mwdelaney)",

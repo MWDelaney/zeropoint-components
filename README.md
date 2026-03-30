@@ -2,8 +2,8 @@
 
 # ZeroPoint Reusable Components 
 
-[![npm version](https://img.shields.io/npm/v/eleventy-plugin-reusable-components.svg)](https://www.npmjs.com/package/eleventy-plugin-reusable-components)
-[![Tests](https://github.com/MWDelaney/eleventy-plugin-components/workflows/🧪%20Run%20Tests/badge.svg)](https://github.com/MWDelaney/eleventy-plugin-components/actions) 
+[![npm version](https://img.shields.io/npm/v/zeropoint-components.svg)](https://www.npmjs.com/package/zeropoint-components)
+[![Tests](https://github.com/MWDelaney/zeropoint-components/workflows/🧪%20Run%20Tests/badge.svg)](https://github.com/MWDelaney/zeropoint-components/actions) 
 
 A configurable [BuildAwesome](https://www.11ty.dev/) plugin that enables a powerful component system for building dynamic, reusable HTML components across your static site.
 
@@ -362,8 +362,8 @@ components:
     background: warning
 
   - type: text-and-image
-    heading: About Our Community
-    description: Join thousands of developers building amazing things with Eleventy.
+    heading: Components are great!
+    description: Reusable HTML is awesome for building static sites.
     image: /assets/images/community.jpg
     imageAlt: Community members collaborating
     layout: image-right
@@ -392,8 +392,8 @@ components:
     background: warning
 
   - type: text-and-image
-    heading: About Our Community
-    description: Join thousands of developers building amazing things with Eleventy.
+    heading: Components are great!
+    description: Reusable HTML is awesome for building static sites.
     image: /assets/images/community.jpg
     imageAlt: Community members collaborating
     layout: image-right
@@ -422,8 +422,8 @@ components:
     background: warning
 
   - type: text-and-image
-    heading: About Our Community
-    description: Join thousands of developers building amazing things with Eleventy.
+    heading: Components are great!
+    description: Reusable HTML is awesome for building static sites.
     image: /assets/images/community.jpg
     imageAlt: Community members collaborating
     layout: image-right
@@ -452,8 +452,8 @@ components:
     background: warning
 
   - type: text-and-image
-    heading: About Our Community
-    description: Join thousands of developers building amazing things with Eleventy.
+    heading: Components are great!
+    description: Reusable HTML is awesome for building static sites.
     image: /assets/images/community.jpg
     imageAlt: Community members collaborating
     layout: image-right
@@ -1023,7 +1023,7 @@ If no template language is specified, the filter will use the calling template's
 |--------|------|---------|-------------|
 | `componentsDir` | `string` | `"src/components/*.*"` | Glob pattern for component files |
 | `collectionName` | `string` | `"components"` | Name of components collection |
-| `enableRenderPlugin` | `boolean` | `true` | Enable Eleventy Render Plugin |
+| `enableRenderPlugin` | `boolean` | `true` | Enable Render Plugin |
 | `excludeFromProduction` | `boolean` | `true` | Exclude components from production |
 
 ### Filters

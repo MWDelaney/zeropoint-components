@@ -1,4 +1,4 @@
-// ESLint configuration for eleventy-plugin-reusable-components
+// ESLint configuration for zeropoint-components
 
 export default [
   {
