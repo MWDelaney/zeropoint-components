@@ -21,15 +21,15 @@
   "type": "module",
   "main": ".eleventy.js",
   "scripts": {
-  "test": "eslint src --ext .js,.ts"
+    "test": "eslint src --ext .js,.ts"
+  },
+  "devDependencies": {
+    "eslint": "^9.33.0"
   },
   "peerDependencies": {
     "@11ty/eleventy": "^3.0.0"
   },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "devDependencies": {
-    "eslint": "^9.33.0"
   }
 }
