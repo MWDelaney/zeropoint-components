@@ -11,11 +11,11 @@ A configurable [BuildAwesome](https://www.11ty.dev/) plugin that enables a power
 
 ## Features
 
-- 🧩 **Dynamic Component Rendering** - Render components based on content data
-- 🎨 **Template Language Agnostic** - Works with Nunjucks, Liquid, WebC, Vento, and more
-- 🏗️ **Flexible Configuration** - Customizable directories and options
-- 🚀 **Production Ready** - Excludes development components from production builds
-- 🔧 **Developer Friendly** - Comprehensive error handling and debugging
+- **Dynamic Component Rendering** - Render components based on content data
+- **Template Language Agnostic** - Works with Nunjucks, Liquid, WebC, Vento, and more
+- **Flexible Configuration** - Customizable directories and options
+- **Production Ready** - Excludes development components from production builds
+- **Developer Friendly** - Comprehensive error handling and debugging
 
 ## Installation
 
